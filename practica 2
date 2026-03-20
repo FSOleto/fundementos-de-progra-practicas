@@ -1,0 +1,32 @@
+
+#include <stdio.h>
+
+int main()
+{
+  float p1,p2;
+  float final,proyecto;
+  float promedio;
+
+  printf("ingrese nota del primer Parcial: ");
+  scanf("%f",&p1);
+  
+    printf("ingrese nota del segundo Parcial: ");
+  scanf("%f",&p2);
+  
+    printf("ingrese nota del Examen Final: ");
+  scanf("%f",&final);
+  
+    printf("ingrese nota del proyecto: ");
+  scanf("%f",&proyecto);
+  
+  promedio= (p1*0.25)+(p2*0.25)+(final*0.30)+(proyecto*0.20);
+
+  printf("El Promedio final es: %.2f\n",promedio);
+    if(promedio>=51){
+        printf("ESTADO: APROBADO\n");
+    } else {
+      printf("ESTADO: REPROBADO\n");  
+    }
+
+    return 0;
+}
