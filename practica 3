@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+
+    char nombre[100];
+    float salario, aguinaldo;
+    int meses;
+
+    printf("Ingrese el nombre del trabajador: ");
+    scanf("%s",&nombre);
+
+    printf("Ingrese el salario mensual: ");
+    scanf("%f", &salario);
+
+    printf("Ingrese los meses trabajados (1-12): ");
+    scanf("%d", &meses);
+
+  
+    aguinaldo = (salario * meses) / 12;
+
+    printf("\n----- AGUINALDO -----\n");
+    printf("Trabajador: %s", nombre);
+    printf("Salario mensual: %.2f Bs\n", salario);
+    printf("Meses trabajados: %d\n", meses);
+    printf("Aguinaldo: %.2f Bs\n", aguinaldo);
+
+    return 0;
+}
