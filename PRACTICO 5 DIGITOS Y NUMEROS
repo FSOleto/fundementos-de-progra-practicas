@@ -1,0 +1,292 @@
+Ejercicio 1
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long n;
+    int suma = 0;
+    cin >> n;
+    
+    if (n < 0) n = -n;
+    
+    while (n > 0) {
+        suma += n % 10;
+        n /= 10;
+    }
+    
+    cout << suma << "\n";
+    return 0;
+}
+Ejercicio 2
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long n, invertido = 0;
+    cin >> n;
+    
+    bool negativo = false;
+    if (n < 0) {
+        negativo = true;
+        n = -n;
+    }
+    
+    while (n > 0) {
+        invertido = invertido * 10 + (n % 10);
+        n /= 10;
+    }
+    
+    if (negativo) invertido = -invertido;
+    
+    cout << invertido << "\n";
+    return 0;
+}
+Ejercicio 3
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long n;
+    int pares = 0;
+    cin >> n;
+    
+    if (n < 0) n = -n;
+    if (n == 0) pares = 1;
+    
+    while (n > 0) {
+        if ((n % 10) % 2 == 0) {
+            pares++;
+        }
+        n /= 10;
+    }
+    
+    cout << pares << "\n";
+    return 0;
+}
+Ejercicio 4
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long n, original, invertido = 0;
+    cin >> n;
+    
+    original = n;
+    if (n < 0) n = -n;
+    
+    long long temp = n;
+    while (temp > 0) {
+        invertido = invertido * 10 + (temp % 10);
+        temp /= 10;
+    }
+    
+    if (original == invertido || original == -invertido) {
+        cout << "Es capicua\n";
+    } else {
+        cout << "No es capicua\n";
+    }
+    
+    return 0;
+}
+Ejercicio 5
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long n, complemento = 0, multiplicador = 1;
+    cin >> n;
+    
+    if (n < 0) n = -n;
+    if (n == 0) complemento = 9;
+    
+    while (n > 0) {
+        int digito = n % 10;
+        complemento = complemento + (9 - digito) * multiplicador;
+        multiplicador *= 10;
+        n /= 10;
+    }
+    
+    cout << complemento << "\n";
+    return 0;
+}
+Ejercicio 6
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long n;
+    bool valido = true;
+    cin >> n;
+    
+    if (n < 0) n = -n;
+    
+    while (n > 0) {
+        if (n % 10 >= 8) {
+            valido = false;
+            break;
+        }
+        n /= 10;
+    }
+    
+    if (valido) {
+        cout << "Valido\n";
+    } else {
+        cout << "Invalido\n";
+    }
+    
+    return 0;
+}
+Ejercicio 7
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long n;
+    int total = 0, mayores_cinco = 0, cantidad = 0;
+    cin >> n;
+    
+    if (n < 0) n = -n;
+    if (n == 0) cantidad = 1;
+    
+    while (n > 0) {
+        int digito = n % 10;
+        total += digito;
+        if (digito > 5) mayores_cinco++;
+        cantidad++;
+        n /= 10;
+    }
+    
+    cout << "Total de horas: " << total << "\n";
+    cout << "Apps que superan 5h: " << mayores_cinco << "\n";
+    if (cantidad > 0) {
+        cout << "Promedio: " << (float)total / cantidad << "\n";
+    }
+    
+    return 0;
+}
+Ejercicio 8
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long n;
+    int valor_minimo, suma = 0, pares = 0;
+    
+    cout << "Codigo: ";
+    cin >> n;
+    cout << "Valor minimo de suma: ";
+    cin >> valor_minimo;
+    
+    if (n < 0) n = -n;
+    
+    while (n > 0) {
+        int digito = n % 10;
+        suma += digito;
+        if (digito % 2 == 0) pares++;
+        n /= 10;
+    }
+    
+    if (pares >= 2 && suma > valor_minimo) {
+        cout << "Seguro\n";
+    } else {
+        cout << "No seguro\n";
+    }
+    
+    return 0;
+}
+Ejercicio 9
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long pin;
+    cin >> pin;
+    
+    if (pin < 0) pin = -pin;
+    
+    int digitos = 0;
+    long long temp = pin;
+    while (temp > 0) {
+        digitos++;
+        temp /= 10;
+    }
+    
+    if (pin == 0) digitos = 1;
+    
+    if (digitos != 4) {
+        cout << "Invalido\n";
+    } else {
+        bool repetidos = false;
+        int anterior = -1;
+        while (pin > 0) {
+            int actual = pin % 10;
+            if (actual == anterior) {
+                repetidos = true;
+                break;
+            }
+            anterior = actual;
+            pin /= 10;
+        }
+        
+        if (repetidos) {
+            cout << "Invalido\n";
+        } else {
+            cout << "Valido\n";
+        }
+    }
+    
+    return 0;
+}
+//Ejercicio 10
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long n;
+    int total = 0, mayores_cinco = 0;
+    cin >> n;
+    
+    if (n < 0) n = -n;
+    
+    while (n > 0) {
+        int digito = n % 10;
+        total += digito;
+        if (digito > 5) mayores_cinco++;
+        n /= 10;
+    }
+    
+    cout << "Transacciones mayores a 5: " << mayores_cinco << "\n";
+    cout << "Total acumulado: " << total << "\n";
+    
+    return 0;
+}
