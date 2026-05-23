@@ -1,0 +1,297 @@
+
+Ejercicio 1
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    float p;
+    cout << "Peso en gramos: ";
+    cin >> p;
+    
+    if (p > 0 && p < 50) {
+        cout << "Costo: 1.50 Bs\n";
+    } else if (p >= 50 && p <= 100) {
+        cout << "Costo: 4.00 Bs\n";
+    } else if (p > 100 && p <= 200) {
+        cout << "Costo: 6.00 Bs\n";
+    } else if (p > 200 && p <= 350) {
+        cout << "Costo: 10.50 Bs\n";
+    } else if (p > 350 && p <= 500) {
+        cout << "Costo: 15.00 Bs\n";
+    } else if (p > 500) {
+        cout << "NO PUEDE ENVIAR COMO CARTA\n";
+    }
+    
+    return 0;
+}
+Ejercicio 2
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    float a, b, c, disc, x1, x2;
+    cout << "Coeficientes a, b, c: ";
+    cin >> a >> b >> c;
+    
+    disc = (b * b) - (4 * a * c);
+    
+    if (disc >= 0 && a != 0) {
+        x1 = (-b + sqrt(disc)) / (2 * a);
+        x2 = (-b - sqrt(disc)) / (2 * a);
+        cout << "x1 = " << x1 << "\nx2 = " << x2 << "\n";
+    }
+    
+    return 0;
+}
+Ejercicio 3
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n, u, d, c, m;
+    cout << "Numero (< 10000): ";
+    cin >> n;
+    
+    m = n / 1000;
+    c = (n % 1000) / 100;
+    d = (n % 100) / 10;
+    u = n % 10;
+    
+    cout << "Unidades de mil: " << m << "\n";
+    cout << "Centenas: " << c << "\n";
+    cout << "Decenas: " << d << "\n";
+    cout << "Unidades: " << u << "\n";
+    
+    return 0;
+}
+Ejercicio 4
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int h1, m1, s1, h2, m2, s2;
+    long t1, t2, diff;
+    
+    cout << "Horario 1 (HH MM SS): ";
+    cin >> h1 >> m1 >> s1;
+    cout << "Horario 2 (HH MM SS): ";
+    cin >> h2 >> m2 >> s2;
+    
+    t1 = h1 * 3600 + m1 * 60 + s1;
+    t2 = h2 * 3600 + m2 * 60 + s2;
+    diff = t2 - t1;
+    
+    int hd = diff / 3600;
+    int md = (diff % 3600) / 60;
+    int sd = diff % 60;
+    
+    cout << "Tiempo transcurrido: " << hd << ":" << md << ":" << sd << "\n";
+    
+    return 0;
+}
+Ejercicio 5
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int d, m, a;
+    cout << "Fecha (DD MM AAAA): ";
+    cin >> d >> m >> a;
+    
+    if ((m == 3 && d >= 21) || m == 4 || m == 5 || (m == 6 && d < 21)) {
+        cout << "Otono\n";
+    } else if ((m == 6 && d >= 21) || m == 7 || m == 8 || (m == 9 && d < 21)) {
+        cout << "Invierno\n";
+    } else if ((m == 9 && d >= 21) || m == 10 || m == 11 || (m == 12 && d < 21)) {
+        cout << "Primavera\n";
+    } else {
+        cout << "Verano\n";
+    }
+    
+    return 0;
+}
+Ejercicio 6
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    float a, b, c, disc, x1, x2, real, imag;
+    cout << "Coeficientes a, b, c: ";
+    cin >> a >> b >> c;
+    
+    if (a == 0 && b == 0) {
+        cout << "Ecuacion degenerada\n";
+    } else if (a == 0 && b != 0) {
+        cout << "Ecuacion lineal, x = " << -c / b << "\n";
+    } else {
+        disc = (b * b) - (4 * a * c);
+        if (disc > 0) {
+            x1 = (-b + sqrt(disc)) / (2 * a);
+            x2 = (-b - sqrt(disc)) / (2 * a);
+            cout << "Raices reales distintas: x1 = " << x1 << ", x2 = " << x2 << "\n";
+        } else if (disc == 0) {
+            x1 = -b / (2 * a);
+            cout << "Raiz real doble: x = " << x1 << "\n";
+        } else {
+            real = -b / (2 * a);
+            imag = sqrt(-disc) / (2 * a);
+            cout << "Raices complejas: " << real << " + " << imag << "i y " << real << " - " << imag << "i\n";
+        }
+    }
+    
+    return 0;
+}
+Ejercicio 7
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    float a, b, c, d, e, f, det, x, y;
+    cout << "Coeficientes a, b, c (Ecuacion 1): ";
+    cin >> a >> b >> c;
+    cout << "Coeficientes d, e, f (Ecuacion 2): ";
+    cin >> d >> e >> f;
+    
+    det = a * e - b * d;
+    
+    if (det == 0) {
+        if (a * f == c * d && b * f == c * e) {
+            cout << "Infinitas soluciones\n";
+        } else {
+            cout << "Sin solucion\n";
+        }
+    } else {
+        x = (c * e - b * f) / det;
+        y = (a * f - c * d) / det;
+        cout << "X = " << x << "\nY = " << y << "\n";
+    }
+    
+    return 0;
+}
+Ejercicio 8
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int q_hamb, q_queso, q_papas, q_soda;
+    float t_hamb, t_queso, t_papas, t_soda, total;
+    
+    cout << "Cantidad Hamburguesas: "; cin >> q_hamb;
+    cout << "Cantidad Hamburguesas con queso: "; cin >> q_queso;
+    cout << "Cantidad Papas fritas: "; cin >> q_papas;
+    cout << "Cantidad Soda: "; cin >> q_soda;
+    
+    t_hamb = q_hamb * 3.00;
+    t_queso = q_queso * 5.00;
+    t_papas = q_papas * 2.00;
+    t_soda = q_soda * 2.50;
+    total = t_hamb + t_queso + t_papas + t_soda;
+    
+    cout << "Parcial Hamburguesas: " << t_hamb << "\n";
+    cout << "Parcial Hamburguesas con queso: " << t_queso << "\n";
+    cout << "Parcial Papas fritas: " << t_papas << "\n";
+    cout << "Parcial Soda: " << t_soda << "\n";
+    cout << "TOTAL: " << total << "\n";
+    
+    return 0;
+}
+Ejercicio 9
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int opcion;
+    float area, pi = 3.141592;
+    
+    cout << "1. Cuadrado\n2. Circulo\n3. Triangulo\nOpcion: ";
+    cin >> opcion;
+    
+    if (opcion == 1) {
+        float l;
+        cout << "Lado: "; cin >> l;
+        area = l * l;
+        cout << "Area: " << area << "\n";
+    } else if (opcion == 2) {
+        float r;
+        cout << "Radio: "; cin >> r;
+        area = pi * (r * r);
+        cout << "Area: " << area << "\n";
+    } else if (opcion == 3) {
+        float b, h;
+        cout << "Base: "; cin >> b;
+        cout << "Altura: "; cin >> h;
+        area = (b * h) / 2;
+        cout << "Area: " << area << "\n";
+    }
+    
+    return 0;
+}
+Ejercicio 10
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    char continuar = 's';
+    
+    while (continuar == 's' || continuar == 'S') {
+        float p1, p2, prac, ef, nota_final;
+        int faltas;
+        
+        cout << "Parcial 1 (sobre 100): "; cin >> p1;
+        cout << "Parcial 2 (sobre 100): "; cin >> p2;
+        cout << "Examen Practico (sobre 100): "; cin >> prac;
+        cout << "Examen Final (sobre 100): "; cin >> ef;
+        cout << "Numero de faltas: "; cin >> faltas;
+        
+        if (faltas > 9) {
+            ef = 0;
+        }
+        
+        nota_final = ((p1 + p2) / 2) * 0.40 + (prac * 0.20) + (ef * 0.40);
+        
+        cout << "Nota Final: " << nota_final << "\n";
+        
+        if (nota_final >= 51) {
+            cout << "APROBADO\n";
+        } else {
+            cout << "REPROBADO\n";
+        }
+        
+        cout << "Hay mas alumnos? (s/n): ";
+        cin >> continuar;
+    }
+    
+    return 0;
+}
