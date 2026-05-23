@@ -1,0 +1,159 @@
+
+#include <stdio.h>
+
+int main() {
+    char nombre[100];
+    int edad;
+    char carrera[100];
+    int semestre;
+
+    printf("Nombre completo: ");
+    scanf(" %[^\n]", nombre);
+    printf("Edad: ");
+    scanf("%d", &edad);
+    printf("Carrera: ");
+    scanf(" %[^\n]", carrera);
+    printf("Semestre: ");
+    scanf("%d", &semestre);
+
+    printf("Estudiante: %s, Edad: %d, Carrera: %s, Semestre: %d\n", nombre, edad, carrera, semestre);
+
+    return 0;
+}
+//Ejercicio 2
+
+
+#include <stdio.h>
+
+int main() {
+    int num1, num2;
+    printf("Ingrese dos numeros enteros: ");
+    scanf("%d %d", &num1, &num2);
+    printf("La suma es: %d\n", num1 + num2);
+    return 0;
+}
+//Ejercicio 3
+
+
+#include <stdio.h>
+
+int main() {
+    float nota1, nota2, nota3;
+    printf("Ingrese tres notas: ");
+    scanf("%f %f %f", &nota1, &nota2, &nota3);
+    printf("El promedio es: %.2f\n", (nota1 + nota2 + nota3) / 3);
+    return 0;
+}
+//Ejercicio 4
+
+C
+#include <stdio.h>
+
+int main() {
+    float base, altura;
+    printf("Ingrese base y altura del triangulo: ");
+    scanf("%f %f", &base, &altura);
+    printf("El area es: %.2f\n", (base * altura) / 2);
+    return 0;
+}
+//Ejercicio 5
+
+
+#include <stdio.h>
+
+int main() {
+    int cantidad;
+    printf("Cantidad de cuadernos a comprar: ");
+    scanf("%d", &cantidad);
+    printf("Total a pagar: %d Bs\n", cantidad * 12);
+    return 0;
+}
+//Ejercicio 6
+
+
+#include <stdio.h>
+
+int main() {
+    int n1, n2;
+    printf("Ingrese dos numeros: ");
+    scanf("%d %d", &n1, &n2);
+    
+    if (n1 > n2) {
+        printf("El numero mayor es: %d\n", n1);
+    } else {
+        printf("El numero mayor es: %d\n", n2);
+    }
+    return 0;
+}
+//Ejercicio 7
+
+
+#include <stdio.h>
+
+int main() {
+    float nota_final;
+    printf("Ingrese la nota final: ");
+    scanf("%f", &nota_final);
+    
+    if (nota_final >= 51) {
+        printf("Aprobado\n");
+    } else {
+        printf("Reprobado\n");
+    }
+    return 0;
+}
+//Ejercicio 8
+
+
+#include <stdio.h>
+
+int main() {
+    float monto;
+    printf("Ingrese el monto de la compra: ");
+    scanf("%f", &monto);
+    
+    if (monto > 100) {
+        monto = monto - (monto * 0.10);
+    }
+    
+    printf("Total a pagar: %.2f Bs\n", monto);
+    return 0;
+}
+//Ejercicio 9
+
+
+#include <stdio.h>
+
+int main() {
+    int numero;
+    printf("Ingrese un numero entero: ");
+    scanf("%d", &numero);
+    
+    if (numero % 2 == 0) {
+        printf("Es par\n");
+    } else {
+        printf("Es impar\n");
+    }
+    return 0;
+}
+//Ejercicio 10
+
+
+#include <stdio.h>
+
+int main() {
+    float horas, pago_hora, salario;
+    printf("Horas trabajadas: ");
+    scanf("%f", &horas);
+    printf("Pago por hora: ");
+    scanf("%f", &pago_hora);
+    
+    salario = horas * pago_hora;
+    
+    if (horas > 40) {
+        salario = salario + (salario * 0.10);
+    }
+    
+    printf("Salario total: %.2f\n", salario);
+    return 0;
+}
