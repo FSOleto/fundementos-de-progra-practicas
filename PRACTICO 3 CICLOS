@@ -1,0 +1,351 @@
+Ejercicio 1
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n, s = 0;
+    cin >> n;
+    
+    for(int i = 1; i <= n; i++) {
+        s += i;
+    }
+    
+    cout << s << "\n";
+    return 0;
+}
+Ejercicio 2
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n, s = 0;
+    cin >> n;
+    
+    for(int i = 1; i <= n; i += 2) {
+        s += i;
+    }
+    
+    cout << s << "\n";
+    return 0;
+}
+Ejercicio 3
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    long long s = 0;
+    cin >> n;
+    
+    for(int i = 1; i <= n; i++) {
+        s += (i * i);
+    }
+    
+    cout << s << "\n";
+    return 0;
+}
+Ejercicio 4
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n, s = 0;
+    cin >> n;
+    
+    for(int i = 1; i <= n; i++) {
+        if(i % 2 != 0) {
+            s += i;
+        } else {
+            s -= i;
+        }
+    }
+    
+    cout << s << "\n";
+    return 0;
+}
+Ejercicio 5
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    long long p = 1;
+    cin >> n;
+    
+    for(int i = 1; i <= n; i++) {
+        p *= i;
+    }
+    
+    cout << p << "\n";
+    return 0;
+}
+Ejercicio 6
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double x, s = 0;
+    int n;
+    cin >> x >> n;
+    
+    for(int i = 1; i <= n; i++) {
+        s += pow(x, i);
+    }
+    
+    cout << s << "\n";
+    return 0;
+}
+Ejercicio 7
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    long long fac = 1;
+    cin >> n;
+    
+    if(n == 0) {
+        fac = 1;
+    } else {
+        for(int i = 1; i <= n; i++) {
+            fac *= i;
+        }
+    }
+    
+    cout << fac << "\n";
+    return 0;
+}
+Ejercicio 8
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double x, s = 0;
+    int n;
+    cin >> x >> n;
+    
+    for(int i = 1; i <= n; i++) {
+        long long fac = 1;
+        for(int j = 1; j <= i; j++) {
+            fac *= j;
+        }
+        s += pow(x, i) / fac;
+    }
+    
+    cout << s << "\n";
+    return 0;
+}
+Ejercicio 9
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double x, s = 0;
+    int n;
+    cin >> x >> n;
+    
+    for(int i = 1; i <= n; i++) {
+        long long fac = 1;
+        for(int j = 1; j <= i; j++) {
+            fac *= j;
+        }
+        double term = pow(x, i) / fac;
+        if(i % 2 != 0) {
+            s += term;
+        } else {
+            s -= term;
+        }
+    }
+    
+    cout << s << "\n";
+    return 0;
+}
+Ejercicio 10
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double x, s = 0;
+    int n;
+    cin >> x >> n;
+    
+    int sign = 1;
+    for(int i = 1; i <= n; i += 2) {
+        long long fac = 1;
+        for(int j = 1; j <= i; j++) {
+            fac *= j;
+        }
+        s += sign * (pow(x, i) / fac);
+        sign *= -1;
+    }
+    
+    cout << s << "\n";
+    return 0;
+}
+Ejercicio 11
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int a, b, temp;
+    cin >> a >> b;
+    
+    while(b != 0) {
+        temp = b;
+        b = a % b;
+        a = temp;
+    }
+    
+    cout << a << "\n";
+    return 0;
+}
+Ejercicio 12
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long a, b, tempA, tempB, temp;
+    cin >> a >> b;
+    
+    tempA = a;
+    tempB = b;
+    
+    while(tempB != 0) {
+        temp = tempB;
+        tempB = tempA % tempB;
+        tempA = temp;
+    }
+    
+    long long mcd = tempA;
+    long long mcm = (a * b) / mcd;
+    
+    cout << mcm << "\n";
+    return 0;
+}
+Ejercicio 13
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    for(int i = 1; i <= 10; i++) {
+        for(int j = 1; j <= 10; j++) {
+            cout << i << " + " << j << " = " << i + j << "\n";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
+Ejercicio 14
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    
+    long long f0 = 1, f1 = 1, f_next;
+    
+    if (n == 0 || n == 1) {
+        cout << 1 << "\n";
+    } else {
+        for(int i = 2; i <= n; i++) {
+            f_next = f1 + f0;
+            f0 = f1;
+            f1 = f_next;
+        }
+        cout << f1 << "\n";
+    }
+    return 0;
+}
+Ejercicio 15
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    for(int h = 0; h < 24; h++) {
+        for(int m = 0; m < 60; m++) {
+            for(int s = 0; s < 60; s++) {
+                if(h < 10) cout << "0";
+                cout << h << ":";
+                if(m < 10) cout << "0";
+                cout << m << ":";
+                if(s < 10) cout << "0";
+                cout << s << "\n";
+            }
+        }
+    }
+    return 0;
+}
+Ejercicio 16
+
+C++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n, div = 0;
+    cin >> n;
+    
+    for(int i = 1; i <= n; i++) {
+        if(n % i == 0) {
+            div++;
+        }
+    }
+    
+    if(div == 2) {
+        cout << "Es primo\n";
+    } else {
+        cout << "No es primo\n";
+    }
+    return 0;
+}
