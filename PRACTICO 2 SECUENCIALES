@@ -1,0 +1,267 @@
+Ejercicio 1 
+a) 
+ Calentar agua
+Colocar la bolsa de té en una taza
+Verter el agua caliente en la taza.
+Esperar unos minutos y retirar la bolsa de té
+.b) 
+
+Insertar la tarjeta en el cajero.
+Ingresar el PIN de seguridad
+.Seleccionar la opción de retiro e ingresar el monto.
+Retirar el dinero y la tarjeta.
+c)
+Identificar los valores de los coeficientes.
+Calcular el valor del discriminante.
+Aplicar la fórmula general dependiendo de si el discriminante es positivo, negativo o cero.
+Ejercicio 2   C#include <stdio.h>
+
+int main() {
+    float r, h, area_lateral, area_total, volumen;
+    float pi = 3.14159265359;
+    printf("Radio: ");
+    scanf("%f", &r);
+    printf("Altura: ");
+    scanf("%f", &h);
+    area_lateral = 2 * pi * r * h;
+    area_total = 2 * pi * r * (r + h);
+    volumen = pi * (r * r) * h;
+    printf("Area lateral: %.2f\nArea total: %.2f\nVolumen: %.2f\n", area_lateral, area_total, volumen);
+    return 0;
+}
+//Ejercicio 3   
+#include <stdio.h>
+
+int main() {
+    float p1, p2, ef, pi, final;
+    printf("Parcial 1: "); scanf("%f", &p1);
+    printf("Parcial 2: "); scanf("%f", &p2);
+    printf("Examen Final: "); scanf("%f", &ef);
+    printf("Proyecto: "); scanf("%f", &pi);
+    final = p1 + p2 + ef + pi;
+    printf("Nota final: %.2f\n", final);
+    if (final >= 51) {
+        printf("APROBÓ\n");
+    } else {
+        printf("REPROBÓ\n");
+    }
+    return 0;
+}
+//Ejercicio 4  
+#include <stdio.h>
+
+int main() {
+    char nombre[100];
+    float salario, aguinaldo;
+    int meses;
+    printf("Nombre: ");
+    scanf(" %[^\n]", nombre);
+    printf("Salario mensual: ");
+    scanf("%f", &salario);
+    printf("Meses trabajados: ");
+    scanf("%d", &meses);
+    aguinaldo = (salario * meses) / 12.0;
+    printf("Aguinaldo: %.2f\n", aguinaldo);
+    return 0;
+}
+//Ejercicio 5   
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float c, t, cuota, monto_total, interes_total;
+    int n;
+    printf("Capital prestado: ");
+    scanf("%f", &c);
+    printf("Tasa de interes mensual: ");
+    scanf("%f", &t);
+    printf("Numero de cuotas: ");
+    scanf("%d", &n);
+    cuota = c * (t * pow(1 + t, n)) / (pow(1 + t, n) - 1);
+    monto_total = cuota * n;
+    interes_total = monto_total - c;
+    printf("Cuota mensual: %.2f\nMonto total: %.2f\nInteres total: %.2f\n", cuota, monto_total, interes_total);
+    return 0;
+}
+//Ejercicio 6   
+#include <stdio.h>
+
+int main() {
+    float c, f, k, ra;
+    printf("Celsius: ");
+    scanf("%f", &c);
+    f = (c * 9.0 / 5.0) + 32;
+    k = c + 273.15;
+    ra = (c + 273.15) * 9.0 / 5.0;
+    printf("Fahrenheit: %.2f\nKelvin: %.2f\nRankine: %.2f\n", f, k, ra);
+    return 0;
+}
+//Ejercicio 7   
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float c, t, m, g;
+    int n;
+    printf("Capital inicial: ");
+    scanf("%f", &c);
+    printf("Tasa de interes anual: ");
+    scanf("%f", &t);
+    printf("Plazo en anios: ");
+    scanf("%d", &n);
+    m = c * pow(1 + t / 12.0 / 100.0, n * 12);
+    g = m - c;
+    printf("Monto acumulado: %.2f\nGanancia neta: %.2f\n", m, g);
+    return 0;
+}
+//Ejercicio 8   
+#include <stdio.h>
+
+int main() {
+    float a, b, c, d, e, f, det, x, y;
+    printf("A B C: ");
+    scanf("%f %f %f", &a, &b, &c);
+    printf("D E F: ");
+    scanf("%f %f %f", &d, &e, &f);
+    det = a * e - b * d;
+    if (det == 0) {
+        if (a * f == c * d && b * f == c * e) {
+            printf("Infinitas soluciones\n");
+        } else {
+            printf("Sin solucion\n");
+        }
+    } else {
+        x = (c * e - b * f) / det;
+        y = (a * f - c * d) / det;
+        printf("X = %.2f\nY = %.2f\n", x, y);
+    }
+    return 0;
+}
+//Ejercicio 9   
+#include <stdio.h>
+
+int main() {
+    int minutos_totales, dias, horas, minutos;
+    printf("Minutos: ");
+    scanf("%d", &minutos_totales);
+    dias = minutos_totales / 1440;
+    horas = (minutos_totales % 1440) / 60;
+    minutos = (minutos_totales % 1440) % 60;
+    printf("%d dias, %d horas, %d minutos\n", dias, horas, minutos);
+    return 0;
+}
+Ejercicio 10   C#include <stdio.h>
+
+int main() {
+    int d1, m1, d2, m2, dias1, dias2, diff, meses, dias;
+    printf("Fecha inicial (DD MM): ");
+    scanf("%d %d", &d1, &m1);
+    printf("Fecha final (DD MM): ");
+    scanf("%d %d", &d2, &m2);
+    dias1 = m1 * 30 + d1;
+    dias2 = m2 * 30 + d2;
+    diff = dias2 - dias1;
+    meses = diff / 30;
+    dias = diff % 30;
+    printf("Diferencia: %d meses %d dias\n", meses, dias);
+    return 0;
+}
+//Ejercicio 11  
+#include <stdio.h>
+
+int main() {
+    float kwh, total;
+    printf("Consumo en kWh: ");
+    scanf("%f", &kwh);
+    if (kwh == 0) {
+        printf("SIN CONSUMO REGISTRADO\n");
+    } else {
+        if (kwh <= 100) {
+            total = (kwh * 0.30) + 8.00;
+            printf("Categoria basica\n");
+        } else if (kwh <= 300) {
+            total = (kwh * 0.50) + 8.00;
+            printf("Categoria media\n");
+        } else if (kwh <= 600) {
+            total = (kwh * 0.75) + 8.00;
+            printf("Categoria alta\n");
+        } else {
+            total = (kwh * 1.10) + 8.00;
+            printf("Categoria industrial\n");
+        }
+        printf("Monto a pagar: %.2f Bs\n", total);
+    }
+    return 0;
+}
+//Ejercicio 12   
+#include <stdio.h>
+
+int main() {
+    int d, m, a;
+    printf("Fecha (DD MM AAAA): ");
+    scanf("%d %d %d", &d, &m, &a);
+    if ((m == 3 && d >= 21) || m == 4 || m == 5 || (m == 6 && d < 21)) {
+        printf("Otono\n");
+    } else if ((m == 6 && d >= 21) || m == 7 || m == 8 || (m == 9 && d < 21)) {
+        printf("Invierno\n");
+    } else if ((m == 9 && d >= 21) || m == 10 || m == 11 || (m == 12 && d < 21)) {
+        printf("Primavera\n");
+    } else {
+        printf("Verano\n");
+    }
+    return 0;
+}
+//Ejercicio 13   
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float a, b, c, disc, x1, x2, real, imag;
+    printf("Coeficientes a, b, c: ");
+    scanf("%f %f %f", &a, &b, &c);
+    if (a == 0 && b == 0) {
+        printf("Ecuacion degenerada\n");
+    } else if (a == 0 && b != 0) {
+        printf("Ecuacion lineal, x = %.2f\n", -c / b);
+    } else {
+        disc = (b * b) - (4 * a * c);
+        if (disc > 0) {
+            x1 = (-b + sqrt(disc)) / (2 * a);
+            x2 = (-b - sqrt(disc)) / (2 * a);
+            printf("Raices reales distintas: x1 = %.2f, x2 = %.2f\n", x1, x2);
+        } else if (disc == 0) {
+            x1 = -b / (2 * a);
+            printf("Raiz real doble: x = %.2f\n", x1);
+        } else {
+            real = -b / (2 * a);
+            imag = sqrt(-disc) / (2 * a);
+            printf("Raices complejas: %.2f + %.2fi y %.2f - %.2fi\n", real, imag, real, imag);
+        }
+    }
+    return 0;
+}
+//Ejercicio 14   
+#include <stdio.h>
+
+int main() {
+    int q_pollo, q_carne, q_queso, q_refresco, q_agua;
+    float t_pollo, t_carne, t_queso, t_refresco, t_agua, total;
+    printf("Cantidad Saltena de pollo: "); scanf("%d", &q_pollo);
+    printf("Cantidad Saltena de carne: "); scanf("%d", &q_carne);
+    printf("Cantidad Empanada de queso: "); scanf("%d", &q_queso);
+    printf("Cantidad Refresco: "); scanf("%d", &q_refresco);
+    printf("Cantidad Agua mineral: "); scanf("%d", &q_agua);
+    t_pollo = q_pollo * 3.50;
+    t_carne = q_carne * 4.00;
+    t_queso = q_queso * 3.00;
+    t_refresco = q_refresco * 5.00;
+    t_agua = q_agua * 3.00;
+    total = t_pollo + t_carne + t_queso + t_refresco + t_agua;
+    printf("Subtotal Saltena de pollo: %.2f\n", t_pollo);
+    printf("Subtotal Saltena de carne: %.2f\n", t_carne);
+    printf("Subtotal Empanada de queso: %.2f\n", t_queso);
+    printf("Subtotal Refresco: %.2f\n", t_refresco);
+    printf("Subtotal Agua mineral: %.2f\n", t_agua);
+    printf("TOTAL A PAGAR: %.2f\n", total);
+    return 0;
+}
