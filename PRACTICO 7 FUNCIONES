@@ -1,0 +1,787 @@
+Ejercicio 1
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float POTEN(float x, float y) {
+    return pow(x, y);
+}
+
+int main() {
+    float x, y;
+    cin >> x >> y;
+    cout << POTEN(x, y) << "\n";
+    return 0;
+}
+Ejercicio 2
+
+C++
+#include <iostream>
+
+using namespace std;
+
+long long FAC(int n) {
+    if (n <= 1) return 1;
+    long long f = 1;
+    for (int i = 2; i <= n; i++) {
+        f *= i;
+    }
+    return f;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    cout << FAC(n) << "\n";
+    return 0;
+}
+Ejercicio 3
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float POTEN(float x, float y) { 
+    return pow(x, y); 
+}
+
+long long FAC(int n) {
+    long long f = 1;
+    for (int i = 2; i <= n; i++) {
+        f *= i;
+    }
+    return f;
+}
+
+int main() {
+    int x, n;
+    float S = 0;
+    cin >> x >> n;
+    for (int i = 1; i <= n; i++) {
+        S += POTEN(x, i) / FAC(i);
+    }
+    cout << S << "\n";
+    return 0;
+}
+Ejercicio 4
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float POTEN(float x, float y) { 
+    return pow(x, y); 
+}
+
+long long FAC(int n) {
+    long long f = 1;
+    for (int i = 2; i <= n; i++) {
+        f *= i;
+    }
+    return f;
+}
+
+int main() {
+    int x, n;
+    float S = 0;
+    int sign = 1;
+    cin >> x >> n;
+    for (int i = 1; i <= n; i += 2) {
+        S += sign * (POTEN(x, i) / FAC(i));
+        sign *= -1;
+    }
+    cout << S << "\n";
+    return 0;
+}
+Ejercicio 5
+
+C++
+#include <iostream>
+
+using namespace std;
+
+void SISTEMA(float A, float B, float C, float D, float E, float F, float &X, float &Y) {
+    float det = A * E - B * D;
+    if (det != 0) {
+        X = (-C * E - B * -F) / det;
+        Y = (A * -F - -C * D) / det;
+    }
+}
+
+int main() {
+    float A, B, C, D, E, F, X = 0, Y = 0;
+    cin >> A >> B >> C >> D >> E >> F;
+    SISTEMA(A, B, C, D, E, F, X, Y);
+    cout << X << " " << Y << "\n";
+    return 0;
+}
+Ejercicio 6
+
+C++
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void LITERAL(int d, int m, int y) {
+    string meses[] = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
+                      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+    int anio = y;
+    if (y < 100) {
+        if (y > 50) {
+            anio = 1900 + y;
+        } else {
+            anio = 2000 + y;
+        }
+    }
+    if (m >= 1 && m <= 12) {
+        cout << d << " de " << meses[m - 1] << " de " << anio << "\n";
+    }
+}
+
+int main() {
+    int d, m, y;
+    cin >> d >> m >> y;
+    LITERAL(d, m, y);
+    return 0;
+}
+Ejercicio 7
+
+C++
+#include <iostream>
+
+using namespace std;
+
+long long FAC(int n) {
+    long long f = 1;
+    for (int i = 2; i <= n; i++) {
+        f *= i;
+    }
+    return f;
+}
+
+int main() {
+    int n, r;
+    cin >> n >> r;
+    if (n >= r && r >= 0) {
+        long long C = FAC(n) / (FAC(r) * FAC(n - r));
+        cout << C << "\n";
+    }
+    return 0;
+}
+Ejercicio 8
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void cuadratica(float a, float b, float c) {
+    if (a == 0) return;
+    float disc = b * b - 4 * a * c;
+    if (disc > 0) {
+        float x1 = (-b + sqrt(disc)) / (2 * a);
+        float x2 = (-b - sqrt(disc)) / (2 * a);
+        cout << x1 << " " << x2 << "\n";
+    } else if (disc == 0) {
+        cout << -b / (2 * a) << "\n";
+    } else {
+        float real = -b / (2 * a);
+        float imag = sqrt(-disc) / (2 * a);
+        cout << real << " + " << imag << "i y " << real << " - " << imag << "i\n";
+    }
+}
+
+int main() {
+    float a, b, c;
+    cin >> a >> b >> c;
+    cuadratica(a, b, c);
+    return 0;
+}
+Ejercicio 9
+
+C++
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+int binToDec(string bin) {
+    int dec = 0;
+    int p = 0;
+    for (int i = bin.length() - 1; i >= 0; i--) {
+        if (bin[i] == '1') dec += pow(2, p);
+        p++;
+    }
+    return dec;
+}
+
+int main() {
+    string bin;
+    cin >> bin;
+    cout << binToDec(bin) << "\n";
+    return 0;
+}
+Ejercicio 10
+
+C++
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void aRomano(int n) {
+    int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    string rom[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    string res = "";
+    for (int i = 0; i < 13; i++) {
+        while (n >= val[i]) {
+            res += rom[i];
+            n -= val[i];
+        }
+    }
+    cout << res << "\n";
+}
+
+int main() {
+    int n;
+    cin >> n;
+    aRomano(n);
+    return 0;
+}
+Ejercicio 11
+
+C++
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+string unidad(int n) {
+    string u[] = {"", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"};
+    return u[n];
+}
+
+string decena(int n) {
+    string d[] = {"", "diez", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"};
+    string esp[] = {"once", "doce", "trece", "catorce", "quince", "dieciseis", "diecisiete", "dieciocho", "diecinueve"};
+    if (n > 10 && n < 20) return esp[n - 11];
+    if (n == 10 || n == 20 || n == 30 || n == 40 || n == 50 || n == 60 || n == 70 || n == 80 || n == 90) return d[n / 10];
+    if (n > 20 && n < 30) return "veinti" + unidad(n - 20);
+    if (n > 30) return d[n / 10] + " y " + unidad(n % 10);
+    return unidad(n);
+}
+
+string centena(int n) {
+    string c[] = {"", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"};
+    if (n == 100) return "cien";
+    if (n > 100) return c[n / 100] + (n % 100 != 0 ? " " + decena(n % 100) : "");
+    return decena(n);
+}
+
+string aLiteral(float R) {
+    int ent = (int)R;
+    int dec = round((R - ent) * 100);
+    string res = "";
+    if (ent >= 1000) {
+        if (ent / 1000 == 1) res += "un mil ";
+        else res += unidad(ent / 1000) + " mil ";
+        ent %= 1000;
+    }
+    if (ent > 0) res += centena(ent) + " ";
+    if (res == "") res = "cero ";
+    res += (dec < 10 ? "0" : "") + to_string(dec) + "/100 bolivianos";
+    return res;
+}
+
+int main() {
+    float R;
+    cin >> R;
+    cout << aLiteral(R) << "\n";
+    return 0;
+}
+Ejercicio 12
+
+C++
+#include <iostream>
+
+using namespace std;
+
+bool bisiesto(int y) {
+    return (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
+}
+
+bool validarFecha(int d, int m, int y) {
+    if (y < 1 || m < 1 || m > 12 || d < 1) return false;
+    int diasMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (bisiesto(y)) diasMes[2] = 29;
+    return d <= diasMes[m];
+}
+
+int main() {
+    int d, m, y;
+    cin >> d >> m >> y;
+    if (validarFecha(d, m, y)) {
+        cout << "Valida\n";
+    } else {
+        cout << "Invalida\n";
+    }
+    return 0;
+}
+Ejercicio 13
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float redondear(float R, int n) {
+    float f = pow(10, n);
+    return round(R * f) / f;
+}
+
+int main() {
+    float R;
+    int n;
+    cin >> R >> n;
+    cout << redondear(R, n) << "\n";
+    return 0;
+}
+Ejercicio 14
+
+C++
+#include <iostream>
+
+using namespace std;
+
+bool bisiesto(int y) {
+    return (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
+}
+
+int diasDesdeCero(int d, int m, int y) {
+    int diasMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int dias = y * 365 + y / 4 - y / 100 + y / 400;
+    for (int i = 1; i < m; i++) {
+        dias += diasMes[i];
+    }
+    if (m > 2 && bisiesto(y)) dias++;
+    dias += d;
+    return dias;
+}
+
+void diasTranscurridos(int d1, int m1, int y1, int d2, int m2, int y2) {
+    int diff = diasDesdeCero(d2, m2, y2) - diasDesdeCero(d1, m1, y1);
+    if (diff < 0) diff = -diff;
+    cout << diff << "\n";
+}
+
+int main() {
+    int d1, m1, y1, d2, m2, y2;
+    cin >> d1 >> m1 >> y1 >> d2 >> m2 >> y2;
+    diasTranscurridos(d1, m1, y1, d2, m2, y2);
+    return 0;
+}Ejercicio 1
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float POTEN(float x, float y) {
+    return pow(x, y);
+}
+
+int main() {
+    float x, y;
+    cin >> x >> y;
+    cout << POTEN(x, y) << "\n";
+    return 0;
+}
+Ejercicio 2
+
+C++
+#include <iostream>
+
+using namespace std;
+
+long long FAC(int n) {
+    if (n <= 1) return 1;
+    long long f = 1;
+    for (int i = 2; i <= n; i++) {
+        f *= i;
+    }
+    return f;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    cout << FAC(n) << "\n";
+    return 0;
+}
+Ejercicio 3
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float POTEN(float x, float y) { 
+    return pow(x, y); 
+}
+
+long long FAC(int n) {
+    long long f = 1;
+    for (int i = 2; i <= n; i++) {
+        f *= i;
+    }
+    return f;
+}
+
+int main() {
+    int x, n;
+    float S = 0;
+    cin >> x >> n;
+    for (int i = 1; i <= n; i++) {
+        S += POTEN(x, i) / FAC(i);
+    }
+    cout << S << "\n";
+    return 0;
+}
+Ejercicio 4
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float POTEN(float x, float y) { 
+    return pow(x, y); 
+}
+
+long long FAC(int n) {
+    long long f = 1;
+    for (int i = 2; i <= n; i++) {
+        f *= i;
+    }
+    return f;
+}
+
+int main() {
+    int x, n;
+    float S = 0;
+    int sign = 1;
+    cin >> x >> n;
+    for (int i = 1; i <= n; i += 2) {
+        S += sign * (POTEN(x, i) / FAC(i));
+        sign *= -1;
+    }
+    cout << S << "\n";
+    return 0;
+}
+Ejercicio 5
+
+C++
+#include <iostream>
+
+using namespace std;
+
+void SISTEMA(float A, float B, float C, float D, float E, float F, float &X, float &Y) {
+    float det = A * E - B * D;
+    if (det != 0) {
+        X = (-C * E - B * -F) / det;
+        Y = (A * -F - -C * D) / det;
+    }
+}
+
+int main() {
+    float A, B, C, D, E, F, X = 0, Y = 0;
+    cin >> A >> B >> C >> D >> E >> F;
+    SISTEMA(A, B, C, D, E, F, X, Y);
+    cout << X << " " << Y << "\n";
+    return 0;
+}
+Ejercicio 6
+
+C++
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void LITERAL(int d, int m, int y) {
+    string meses[] = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
+                      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+    int anio = y;
+    if (y < 100) {
+        if (y > 50) {
+            anio = 1900 + y;
+        } else {
+            anio = 2000 + y;
+        }
+    }
+    if (m >= 1 && m <= 12) {
+        cout << d << " de " << meses[m - 1] << " de " << anio << "\n";
+    }
+}
+
+int main() {
+    int d, m, y;
+    cin >> d >> m >> y;
+    LITERAL(d, m, y);
+    return 0;
+}
+Ejercicio 7
+
+C++
+#include <iostream>
+
+using namespace std;
+
+long long FAC(int n) {
+    long long f = 1;
+    for (int i = 2; i <= n; i++) {
+        f *= i;
+    }
+    return f;
+}
+
+int main() {
+    int n, r;
+    cin >> n >> r;
+    if (n >= r && r >= 0) {
+        long long C = FAC(n) / (FAC(r) * FAC(n - r));
+        cout << C << "\n";
+    }
+    return 0;
+}
+Ejercicio 8
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void cuadratica(float a, float b, float c) {
+    if (a == 0) return;
+    float disc = b * b - 4 * a * c;
+    if (disc > 0) {
+        float x1 = (-b + sqrt(disc)) / (2 * a);
+        float x2 = (-b - sqrt(disc)) / (2 * a);
+        cout << x1 << " " << x2 << "\n";
+    } else if (disc == 0) {
+        cout << -b / (2 * a) << "\n";
+    } else {
+        float real = -b / (2 * a);
+        float imag = sqrt(-disc) / (2 * a);
+        cout << real << " + " << imag << "i y " << real << " - " << imag << "i\n";
+    }
+}
+
+int main() {
+    float a, b, c;
+    cin >> a >> b >> c;
+    cuadratica(a, b, c);
+    return 0;
+}
+Ejercicio 9
+
+C++
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+int binToDec(string bin) {
+    int dec = 0;
+    int p = 0;
+    for (int i = bin.length() - 1; i >= 0; i--) {
+        if (bin[i] == '1') dec += pow(2, p);
+        p++;
+    }
+    return dec;
+}
+
+int main() {
+    string bin;
+    cin >> bin;
+    cout << binToDec(bin) << "\n";
+    return 0;
+}
+Ejercicio 10
+
+C++
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void aRomano(int n) {
+    int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    string rom[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    string res = "";
+    for (int i = 0; i < 13; i++) {
+        while (n >= val[i]) {
+            res += rom[i];
+            n -= val[i];
+        }
+    }
+    cout << res << "\n";
+}
+
+int main() {
+    int n;
+    cin >> n;
+    aRomano(n);
+    return 0;
+}
+Ejercicio 11
+
+C++
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+string unidad(int n) {
+    string u[] = {"", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"};
+    return u[n];
+}
+
+string decena(int n) {
+    string d[] = {"", "diez", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"};
+    string esp[] = {"once", "doce", "trece", "catorce", "quince", "dieciseis", "diecisiete", "dieciocho", "diecinueve"};
+    if (n > 10 && n < 20) return esp[n - 11];
+    if (n == 10 || n == 20 || n == 30 || n == 40 || n == 50 || n == 60 || n == 70 || n == 80 || n == 90) return d[n / 10];
+    if (n > 20 && n < 30) return "veinti" + unidad(n - 20);
+    if (n > 30) return d[n / 10] + " y " + unidad(n % 10);
+    return unidad(n);
+}
+
+string centena(int n) {
+    string c[] = {"", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"};
+    if (n == 100) return "cien";
+    if (n > 100) return c[n / 100] + (n % 100 != 0 ? " " + decena(n % 100) : "");
+    return decena(n);
+}
+
+string aLiteral(float R) {
+    int ent = (int)R;
+    int dec = round((R - ent) * 100);
+    string res = "";
+    if (ent >= 1000) {
+        if (ent / 1000 == 1) res += "un mil ";
+        else res += unidad(ent / 1000) + " mil ";
+        ent %= 1000;
+    }
+    if (ent > 0) res += centena(ent) + " ";
+    if (res == "") res = "cero ";
+    res += (dec < 10 ? "0" : "") + to_string(dec) + "/100 bolivianos";
+    return res;
+}
+
+int main() {
+    float R;
+    cin >> R;
+    cout << aLiteral(R) << "\n";
+    return 0;
+}
+Ejercicio 12
+
+C++
+#include <iostream>
+
+using namespace std;
+
+bool bisiesto(int y) {
+    return (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
+}
+
+bool validarFecha(int d, int m, int y) {
+    if (y < 1 || m < 1 || m > 12 || d < 1) return false;
+    int diasMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (bisiesto(y)) diasMes[2] = 29;
+    return d <= diasMes[m];
+}
+
+int main() {
+    int d, m, y;
+    cin >> d >> m >> y;
+    if (validarFecha(d, m, y)) {
+        cout << "Valida\n";
+    } else {
+        cout << "Invalida\n";
+    }
+    return 0;
+}
+Ejercicio 13
+
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float redondear(float R, int n) {
+    float f = pow(10, n);
+    return round(R * f) / f;
+}
+
+int main() {
+    float R;
+    int n;
+    cin >> R >> n;
+    cout << redondear(R, n) << "\n";
+    return 0;
+}
+Ejercicio 14
+
+C++
+#include <iostream>
+
+using namespace std;
+
+bool bisiesto(int y) {
+    return (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
+}
+
+int diasDesdeCero(int d, int m, int y) {
+    int diasMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int dias = y * 365 + y / 4 - y / 100 + y / 400;
+    for (int i = 1; i < m; i++) {
+        dias += diasMes[i];
+    }
+    if (m > 2 && bisiesto(y)) dias++;
+    dias += d;
+    return dias;
+}
+
+void diasTranscurridos(int d1, int m1, int y1, int d2, int m2, int y2) {
+    int diff = diasDesdeCero(d2, m2, y2) - diasDesdeCero(d1, m1, y1);
+    if (diff < 0) diff = -diff;
+    cout << diff << "\n";
+}
+
+int main() {
+    int d1, m1, y1, d2, m2, y2;
+    cin >> d1 >> m1 >> y1 >> d2 >> m2 >> y2;
+    diasTranscurridos(d1, m1, y1, d2, m2, y2);
+    return 0;
+}
